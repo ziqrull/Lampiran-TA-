@@ -1,7 +1,5 @@
 # ============================================================
 # SISTEM KLASIFIKASI PANEL SURYA MENGGUNAKAN DECISION TREE
-# Penelitian Skripsi
-# Parameter: Tegangan (utama) → Cahaya (kedua) → Suhu (terakhir)
 # ============================================================
 
 # ==========================
@@ -84,17 +82,12 @@ print(dataset["label"].value_counts())
 # ============================================================
 # MEMILIH FITUR DAN LABEL
 # ============================================================
-# Urutan fitur sesuai hierarki pengambilan keputusan:
-# 1. tegangan (parameter utama)
-# 2. cahaya   (parameter kedua)
-# 3. suhu     (parameter terakhir)
-# ============================================================
 
 X = dataset[
     [
-        "tegangan",   # Parameter utama
-        "cahaya",     # Parameter kedua
-        "suhu"        # Parameter terakhir
+        "tegangan",   
+        "cahaya",     
+        "suhu"        
     ]
 ]
 
@@ -410,34 +403,6 @@ print("Struktur pohon disimpan: 'struktur_decision_tree.txt'")
 joblib.dump(model, "DecisionTree_Model.pkl")
 print("\nModel berhasil disimpan: 'DecisionTree_Model.pkl'")
 
-# ============================================================
-# CONTOH PREDIKSI DATA BARU
-# ============================================================
-
-print("\n")
-print("="*60)
-print("PREDIKSI DATA BARU")
-print("="*60)
-
-# Contoh 1: Panel kotor (tegangan rendah, cahaya tinggi, suhu tinggi)
-# Harusnya → Bersihkan
-data_baru_1 = pd.DataFrame({
-    "tegangan" : [14.5],
-    "cahaya"   : [35000.0],
-    "suhu"     : [38.5]
-})
-
-# Contoh 2: Panel bersih (tegangan normal, cahaya tinggi, suhu tinggi)
-# Harusnya → Tidak Perlu
-data_baru_2 = pd.DataFrame({
-    "tegangan" : [18.5],
-    "cahaya"   : [30000.0],
-    "suhu"     : [38.0]
-})
-
-print("\nContoh Prediksi:")
-print(f"  Data 1 (panel kotor) → {model.predict(data_baru_1)[0]}")
-print(f"  Data 2 (panel bersih) → {model.predict(data_baru_2)[0]}")
 
 print("\n")
 print("="*60)
