@@ -1,11 +1,5 @@
 // ============================================================
 //  SISTEM PEMBERSIH PANEL SURYA OTOMATIS
-//  ESP32 + Voltage Sensor 25V + DS18B20 + BH1750 + RTC DS3231
-//  + Motor Driver BTS7960 + Relay Pompa Air
-//  + Limit Switch Kiri & Kanan
-//  + Firebase Realtime Database
-//  + JAM OPERASIONAL 08:00 - 17:00
-//  + DECISION TREE (HASIL TRAINING SCIKIT-LEARN)
 // ============================================================
 
 #include <WiFi.h>
@@ -40,10 +34,8 @@
 // ============================================================
 // KONFIGURASI MOTOR JGY-370
 // ============================================================
-//==================================================
-// KONFIGURASI MOTOR JGY370 12V 25RPM
-//==================================================
-#define PWM_MAKS 255      // atau 220 jika ingin sedikit lebih lambat
+
+#define PWM_MAKS 255     
 
 // ============================================================
 // 3. KALIBRASI VOLTAGE SENSOR
